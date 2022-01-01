@@ -18,6 +18,22 @@
         body{
             font-family: 'Rubik', sans-serif;
         }
+        
+        @keyframes append-animate {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;	
+            }
+        }
+
+        /* animate new box */
+        #weather-icon,  .resultText {
+            animation: append-animate .3s linear;
+        }
     </style>
 </head>
 <body class="text-center bg-gradient-to-r from-cyan-500 to-blue-500">
@@ -25,24 +41,29 @@
         <h1 class="text-3xl font-bold p-2 m-2">Open Weather</h1>
         <p>
             <input class="border-b-4 border-b-blue-900 rounded-lg p-2 text-xl focus:outline-none" type="text" name="" placeholder="Search city name here..." id="city-name">
-            <button class="border-2 border-teal-800 rounded-lg p-2 text-xl text-center transition ease-in-out delay-150 active:scale-95 bg-gradient-to-r from-emerald-500 to-teal-500 drop-shadow-md hover:drop-shadow-2xl" id="findBtn">Find Weather</button>
+            <button class="border-2 border-teal-800 rounded-lg p-2 text-xl text-center transition ease-in-out delay-150 active:scale-95 bg-gradient-to-r from-emerald-500 to-teal-500 drop-shadow-md hover:drop-shadow-2xl" id="findBtn">Search</button>
         </p>
+
+        <div class="weather-img p-2 m-2 backdrop-blur-md text-center">
+            <!-- weather icon here -->
+        </div>
+        
         <section class="result-container p-4 m-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4  gap-4">
             <div class="weather border-2 p-4 m-4 rounded-lg backdrop-blur-md drop-shadow-xl">
                 <p>Weather:</p>
-                <p class="font-bold" id="weather-description">_ _</p>
+                <p class="font-bold resultText" id="weather-description">_ _</p>
             </div>
             <div class="temp border-2 p-4 m-4 rounded-lg backdrop-blur-md drop-shadow-xl">
                 <p>Temperature:</p>
-                <p class="font-bold" id="temp">_ _</p>
+                <p class="font-bold resultText" id="temp">_ _</p>
             </div>
             <div class="windSpeed border-2 p-4 m-4 rounded-lg backdrop-blur-md drop-shadow-xl">
                 <p>Wind Speed:</p>
-                <p class="font-bold" id="wind-speed">_ _</p>
+                <p class="font-bold resultText" id="wind-speed">_ _</p>
             </div>
             <div class="humidity border-2 p-4 m-4 rounded-lg backdrop-blur-md drop-shadow-xl">
                 <p>Humidity:</p>
-                <p class="font-bold" id="humidity">_ _</p>
+                <p class="font-bold resultText" id="humidity">_ _</p>
             </div>
         </section>
     </section>
