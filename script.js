@@ -73,9 +73,8 @@ function getWeatherAPI(){
         let weather = data.weather[0].description;
         temp.innerHTML = `${data.main.temp}°C`;
         windSpeed.innerHTML = `${data.wind.speed} m/s`;
-        humidity.innerHTML = `${data.main.humidity}%`
-        weatherImg.innerHTML = `<img src=${getWeatherImg(weather)} id="weather-icon" width="250" height="300" alt="">`
- 
+        humidity.innerHTML = `${data.main.humidity}%`;
+        weatherImg.innerHTML = `<img src=${getWeatherImg(weather)} id="weather-icon" width="250" height="300" alt="">`;
     })
 }
 
