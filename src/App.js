@@ -10,58 +10,58 @@ function App() {
     const [weatherIcon, setWeatherIcon] = useState("");
 
         // function to get weather icon
-    function getWeatherImg(weather){
+    // function getWeatherImg(weather){
 
-        // clear sky
-        if (weather == "clear sky"){
-            setWeatherIcon("./icons/day/clear_sky.png")
-        }
+    //     // clear sky
+    //     if (weather == "clear sky"){
+    //         setWeatherIcon("./icons/day/clear_sky.png")
+    //     }
 
-        // few clouds
-        if (weather == "few clouds" || weather == "scattered clouds"){
-            setWeatherIcon("./icons/day/few_clouds.png")
-        }
+    //     // few clouds
+    //     if (weather == "few clouds" || weather == "scattered clouds"){
+    //         setWeatherIcon("./icons/day/few_clouds.png")
+    //     }
 
-        // heavy cloud
-        if (weather == "broken clouds" || weather == "overcast clouds"){
-            setWeatherIcon("./icons/clouds.png")
-        }
+    //     // heavy cloud
+    //     if (weather == "broken clouds" || weather == "overcast clouds"){
+    //         setWeatherIcon("./icons/clouds.png")
+    //     }
 
-        // clouds and rain
-        if (weather == "shower rain" || weather == "light intensity shower rain"){
-            return "./icons/shower_rain.png"
-        }
+    //     // clouds and rain
+    //     if (weather == "shower rain" || weather == "light intensity shower rain"){
+    //         return "./icons/shower_rain.png"
+    //     }
 
-        // rain
-        if (weather == "rain" || weather == "light rain" || weather == "moderate rain"){
-            return "./icons/day/rain.png"
-        }
+    //     // rain
+    //     if (weather == "rain" || weather == "light rain" || weather == "moderate rain"){
+    //         return "./icons/day/rain.png"
+    //     }
 
-        // heavy rain
-        if ( weather == "heavy intensity rain" || weather == "very heavy rain" || weather == "extreme rain" || weather == "heavy intensity shower rain" || weather == "ragged shower rain"){
-            return ".icons/heavy_rain.png";
-        }
+    //     // heavy rain
+    //     if ( weather == "heavy intensity rain" || weather == "very heavy rain" || weather == "extreme rain" || weather == "heavy intensity shower rain" || weather == "ragged shower rain"){
+    //         return ".icons/heavy_rain.png";
+    //     }
 
-        // rain and snow
-        if (weather == "freezing rain" || weather == "Light rain and snow" || weather == "Rain and snow"){
-            return "./icons/freezing_rain.png";
-        }
+    //     // rain and snow
+    //     if (weather == "freezing rain" || weather == "Light rain and snow" || weather == "Rain and snow"){
+    //         return "./icons/freezing_rain.png";
+    //     }
 
-        // thunderstorm
-        if (weather == "thunderstorm" || weather == "thunderstorm with light rain" || weather == "thunderstorm with rain" || weather == "thunderstorm with heavy rain" || weather == "light thunderstorm" || weather == "heavy thunderstorm" || weather == "ragged thunderstorm" || weather == "thunderstorm with drizzle" || weather == "thunderstorm with light drizzle" || weather == "thunderstorm with heavy drizzle"){
-            return "./icons/thunderstorm.png"
-        }
+    //     // thunderstorm
+    //     if (weather == "thunderstorm" || weather == "thunderstorm with light rain" || weather == "thunderstorm with rain" || weather == "thunderstorm with heavy rain" || weather == "light thunderstorm" || weather == "heavy thunderstorm" || weather == "ragged thunderstorm" || weather == "thunderstorm with drizzle" || weather == "thunderstorm with light drizzle" || weather == "thunderstorm with heavy drizzle"){
+    //         return "./icons/thunderstorm.png"
+    //     }
 
-        // snow
-        if (weather == "snow" || weather == "light snow	" || weather == "Heavy snow	" || weather == "Sleet" || weather == "Light shower sleet" || weather == "Shower sleet" || weather == "Light shower snow" || weather == "Shower snow" || weather == "Heavy shower snow"){
-            return "./icons/snow.png"
-        }
+    //     // snow
+    //     if (weather == "snow" || weather == "light snow	" || weather == "Heavy snow	" || weather == "Sleet" || weather == "Light shower sleet" || weather == "Shower sleet" || weather == "Light shower snow" || weather == "Shower snow" || weather == "Heavy shower snow"){
+    //         return "./icons/snow.png"
+    //     }
 
-        // atmosphere
-        if (weather == "mist" || weather == "smoke" || weather == "haze" || weather == "sand/ dust whirls" || weather == "fog" || weather == "sand" || weather == "sand" || weather == "dust" || weather == "volcanic ash" || weather == "squalls" || weather == "tornado"){
-            return "./icons/day/mist.png"
-        }
-    }
+    //     // atmosphere
+    //     if (weather == "mist" || weather == "smoke" || weather == "haze" || weather == "sand/ dust whirls" || weather == "fog" || weather == "sand" || weather == "sand" || weather == "dust" || weather == "volcanic ash" || weather == "squalls" || weather == "tornado"){
+    //         return "./icons/day/mist.png"
+    //     }
+    // }
 
     function getWeatherAPI(cityName){
         let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&APPID=4e062582c656f02ba35daa9bc4d33cdb`;
@@ -71,7 +71,7 @@ function App() {
             setCityName("");
             setCityWeather(data.weather[0].description);
             // let weather = data.weather[0].description;
-            getWeatherImg(data.weather[0].description)
+            // getWeatherImg(data.weather[0].description)
             setCityTemp(`${data.main.temp}°C`);
             setCityWind(`${data.wind.speed} m/s`);
             setCityHumidity(`${data.main.humidity}%`);
