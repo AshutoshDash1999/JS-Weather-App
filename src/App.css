@@ -1,8 +1,13 @@
 .App {
   text-align: center;
+  margin: 2rem;
+  min-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
 
-@keyframes append-animate {
+@keyframes animate-weather-icon {
   from {
       transform: scale(0);
       opacity: 0;
@@ -15,5 +20,5 @@
 
 /* animate new box */
 #weather-icon,  .resultText {
-  animation: append-animate .3s linear;
+  animation: animate-weather-ico .3s linear;
 }
