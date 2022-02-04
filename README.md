@@ -1,7 +1,7 @@
 # React Weather App
 
 Built on TailwindCSS and React using OpenWeatherMap API.
-Try the website [here](https://js-open-weather.netlify.app/) 
+Try the website [here](https://react-weather-ashu.netlify.app//) 
 
 ## Available Scripts
 
