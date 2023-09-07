@@ -1,22 +1,4 @@
-.App {
-  text-align: center;
-  margin: 2rem;
-  min-height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-content: center;
-}
 
-@keyframes animate-weather-icon {
-  from {
-      transform: scale(0);
-      opacity: 0;
-  }
-  to {
-      transform: scale(1);
-      opacity: 1;	
-  }
-}
 
 /* animate new box */
 #weather-icon,  .resultText {
