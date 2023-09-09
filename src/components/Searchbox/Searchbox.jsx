@@ -17,8 +17,8 @@ const Searchbox = () => {
       return data;
     });
 
-    const latitude = weatherDetails?.coord?.lon;
-    const longitude = weatherDetails?.coord?.lat;
+    const latitude = weatherDetails?.coord?.lat;
+    const longitude = weatherDetails?.coord?.lon;
 
     await fetchAirPollutionData(latitude, longitude).then((data) => {
       setAirPollutionData(data);

@@ -1,11 +1,7 @@
-import useStore from "../store/useStore";
 import endPoints from "./endPoints";
 import fetchData from "./fetchData";
 
 const { weather, airPollution, forecast } = endPoints;
-
-const { setWeatherData, setAirPollutionData, setForecastData } =
-  useStore.getState();
 
 const apiUtils = {
   fetchWeatherData: (cityName) => {
