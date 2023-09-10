@@ -8,7 +8,7 @@ const Searchbox = () => {
 
   const [cityName, setCityName] = useState("Bhubaneswar");
 
-  const { fetchWeatherData, fetchAirPollutionData, fetchForcastData } =
+  const { fetchWeatherData, fetchAirPollutionData, fetchForcastData, fetchOneCallData } =
     apiUtils;
 
   const fetchWeatherDataHandler = async () => {
@@ -26,6 +26,10 @@ const Searchbox = () => {
 
     await fetchForcastData(latitude, longitude).then((data) => {
       setForecastData(data);
+    });
+    
+    await fetchOneCallData(latitude, longitude).then((data) => {
+      console.log("one call", data)
     });
   };
 

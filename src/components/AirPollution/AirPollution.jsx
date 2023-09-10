@@ -4,6 +4,7 @@ const AirPollution = () => {
   const { airPollutionData } = useStore();
 
   console.log("airPollutionData", airPollutionData);
+
   return (
     <>
       <section className="bg-white p-4 px-8 rounded-xl my-2">
