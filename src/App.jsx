@@ -8,7 +8,7 @@ function App() {
         <DateTime />
         <SearchBox />
       </div>
-      <div>
+      <div className="flex gap-8 items-start">
         <Weather />
         <AirPollution/>
       </div>

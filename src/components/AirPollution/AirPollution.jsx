@@ -1,20 +1,32 @@
+import { IconWind } from "@tabler/icons-react";
 import useStore from "../../store/useStore";
+import { showAQIBasedMessage } from "../../utils/utils";
 
 const AirPollution = () => {
   const { airPollutionData } = useStore();
 
   console.log("airPollutionData", airPollutionData);
 
+  const aqiInfo = showAQIBasedMessage(airPollutionData?.list[0].main.aqi);
+
   return (
     <>
-      <section className="bg-white p-4 px-8 rounded-xl my-2">
-        {!!airPollutionData?.list? (
+      <section className="bg-white py-4 px-8 rounded-xl my-2">
+        {!!airPollutionData?.list ? (
           <>
             <div className="flex justify-between">
               <span className="font-bold text-xl text-neutral-500">
                 Air Quality Index
               </span>
-              <span>{airPollutionData?.list[0].main.aqi}</span>
+              <div className="flex items-center gap-1 w-96">
+                <div>
+                  <IconWind stroke={1.5} className={aqiInfo.titleColor} size={70} />
+                </div>
+                <div>
+                    <h3 className={`${aqiInfo.titleColor} font-black text-xl`}>{aqiInfo?.title}</h3>
+                    <p className="text-neutral-400 font-semibold break-word">{aqiInfo?.message}</p>
+                </div>
+              </div>
             </div>
 
             <div className="grid grid-cols-8 gap-4 my-4">
