@@ -1,3 +1,7 @@
+import useStore from "../store/useStore";
+
+const { setUserLocation } = useStore.getState();
+
 export const showWeatherIcon = (weatherMain, weatherDescription) => {
   const dayType =
     new Date().getHours() > 5 && new Date().getHours() < 18 ? "day" : "night";
@@ -78,3 +82,29 @@ export const showAQIBasedMessage = (aqi) => {
   return aqiMessage;
 };
 
+export const getUserCoordinates = () => {
+  let options = {
+    enableHighAccuracy: true,
+    timeout: 5000,
+    maximumAge: 0,
+  };
+
+  navigator.permissions.query({ name: "geolocation" }).then(function (result) {
+    if (result.state === "granted" || "prompt") {
+      //If granted then you can directly call your function here
+      let userPosition = navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation(position.coords.latitude, position.coords.longitude);
+        },
+        (err) => {
+          console.warn(`ERROR(${err.code}): ${err.message}`);
+        },
+        options
+      );
+
+      console.log("userPosition", userPosition);
+    } else if (result.state === "denied") {
+      //If denied then you have to show instructions to enable location
+    }
+  });
+};

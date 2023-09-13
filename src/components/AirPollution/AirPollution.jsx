@@ -1,13 +1,21 @@
 import { IconWind } from "@tabler/icons-react";
+import { useEffect, useState } from "react";
 import useStore from "../../store/useStore";
 import { showAQIBasedMessage } from "../../utils/utils";
 
 const AirPollution = () => {
   const { airPollutionData } = useStore();
 
-  console.log("airPollutionData", airPollutionData);
+  const [aqiInfo, setAqiInfo] = useState({});
 
-  const aqiInfo = showAQIBasedMessage(airPollutionData?.list[0].main.aqi);
+  useEffect(() => {
+    if (!!airPollutionData?.list) {
+      const aqiDataResponse = showAQIBasedMessage(
+        airPollutionData?.list[0].main.aqi
+      );
+      setAqiInfo(aqiDataResponse);
+    }
+  }, [airPollutionData?.list]);
 
   return (
     <>
@@ -20,11 +28,19 @@ const AirPollution = () => {
               </span>
               <div className="flex items-center gap-1 w-96">
                 <div>
-                  <IconWind stroke={1.5} className={aqiInfo.titleColor} size={70} />
+                  <IconWind
+                    stroke={1.5}
+                    className={aqiInfo.titleColor}
+                    size={70}
+                  />
                 </div>
                 <div>
-                    <h3 className={`${aqiInfo.titleColor} font-black text-xl`}>{aqiInfo?.title}</h3>
-                    <p className="text-neutral-400 font-semibold break-word">{aqiInfo?.message}</p>
+                  <h3 className={`${aqiInfo.titleColor} font-black text-xl`}>
+                    {aqiInfo?.title}
+                  </h3>
+                  <p className="text-neutral-400 font-semibold break-word">
+                    {aqiInfo?.message}
+                  </p>
                 </div>
               </div>
             </div>

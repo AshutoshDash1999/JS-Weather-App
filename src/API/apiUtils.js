@@ -3,9 +3,16 @@ import fetchData from "./fetchData";
 
 const { weather, airPollution, forecast, onecall } = endPoints;
 
+
 const apiUtils = {
-  fetchWeatherData: (cityName) => {
+  fetchWeatherDataByCity: (cityName) => {
     const data = fetchData(`${weather}?q=${cityName}`)
+      .then((data) => data)
+      .catch((error) => error);
+    return data;
+  },
+  fetchWeatherDataByCoordinates: (latitude, longitude) => {
+    const data = fetchData(`${weather}?lat=${latitude}&lon=${longitude}`)
       .then((data) => data)
       .catch((error) => error);
     return data;

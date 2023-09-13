@@ -22,8 +22,6 @@ const Weather = () => {
   const [sunriseTime, setSunriseTime] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
 
-  console.log("weatherData", weatherData);
-
   useEffect(() => {
     setSunriseTime(
       dayjs.unix(weatherData?.sys?.sunrise).local().format("hh:mm A")
