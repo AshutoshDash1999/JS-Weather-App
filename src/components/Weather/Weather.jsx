@@ -23,6 +23,7 @@ const Weather = () => {
   const [weatherIcon, setWeatherIcon] = useState("");
 
   useEffect(() => {
+
     setSunriseTime(
       dayjs.unix(weatherData?.sys?.sunrise).local().format("hh:mm A")
     );
@@ -37,11 +38,11 @@ const Weather = () => {
       );
       setWeatherIcon(icon);
     }
-    
   }, [
     weatherData?.sys?.sunrise,
     weatherData?.sys?.sunset,
     weatherData?.weather,
+    weatherData?.dt
   ]);
 
   return (
@@ -71,7 +72,7 @@ const Weather = () => {
             />
           </div>
 
-          <h2 className="text-7xl text-center font-bold flex justify-center items-start mb-4">
+          <h2 className="text-7xl text-center font-bold flex justify-center items-start mb-1">
             {weatherData?.main?.temp} <IconTemperatureCelsius size={70} />
           </h2>
 

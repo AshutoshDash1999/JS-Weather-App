@@ -1,19 +1,14 @@
 import { IconSearch } from "@tabler/icons-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import apiUtils from "../../API/apiUtils";
 import useStore from "../../store/useStore";
 
 const Searchbox = () => {
-  const {
-    setWeatherData,
-    setAirPollutionData,
-    setForecastData,
-    userLocation,
-    setCityName,
-    cityName,
-  } = useStore();
+  const { setWeatherData, setAirPollutionData, setForecastData, userLocation } =
+    useStore();
 
   console.log("userLocation", userLocation);
+  const [cityName, setCityName] = useState("");
 
   const {
     fetchWeatherDataByCity,
@@ -23,36 +18,20 @@ const Searchbox = () => {
     fetchOneCallData,
   } = apiUtils;
 
-  const fetchWeatherDataHandler = async () => {
-    let cityCoordinates = {
-      latitude: 0,
-      longitude: 0,
-    };
-
-    if (!!userLocation?.latitude) {
-      await fetchWeatherDataByCoordinates(
-        userLocation.latitude,
-        userLocation.longitude
-      ).then((data) => {
+  const fetchWeatherDataHandler = async (latitude = "", longitude = "") => {
+    if (!!latitude) {
+      await fetchWeatherDataByCoordinates(latitude, longitude).then((data) => {
         setWeatherData(data);
-        setCityName(data?.name);
         return data;
       });
     } else {
       await fetchWeatherDataByCity(cityName).then((data) => {
         setWeatherData(data);
-        cityCoordinates.latitude = data.coord.lat;
-        cityCoordinates.longitude = data.coord.lon;
+        latitude = data?.coord?.lat;
+        longitude = data?.coord?.lon;
         return data;
       });
     }
-
-    const latitude = userLocation?.latitude
-      ? userLocation?.latitude
-      : cityCoordinates.latitude;
-    const longitude = userLocation?.longitude
-      ? userLocation?.longitude
-      : cityCoordinates.longitude;
 
     await fetchAirPollutionData(latitude, longitude).then((data) => {
       setAirPollutionData(data);
@@ -68,7 +47,11 @@ const Searchbox = () => {
   };
 
   useEffect(() => {
-    fetchWeatherDataHandler();
+    if (!!userLocation.latitude) {
+      fetchWeatherDataHandler(userLocation.latitude, userLocation.longitude);
+    } else {
+      fetchWeatherDataHandler();
+    }
   }, [userLocation]);
 
   return (
@@ -83,7 +66,7 @@ const Searchbox = () => {
         />
         <button
           className="bg-blue-400 text-white p-2 rounded-full shadow active:scale-90 transition ease-in-out duration-300"
-          onClick={fetchWeatherDataHandler}
+          onClick={() => fetchWeatherDataHandler()}
         >
           Search
         </button>
