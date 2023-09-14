@@ -14,7 +14,6 @@ const Searchbox = () => {
     fetchWeatherDataByCity,
     fetchWeatherDataByCoordinates,
     fetchAirPollutionData,
-    fetchForcastData,
     fetchOneCallData,
   } = apiUtils;
 

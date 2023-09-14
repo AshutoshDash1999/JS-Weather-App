@@ -20,17 +20,17 @@ export const showWeatherIcon = (weatherMain, weatherDescription) => {
       "Dust" ||
       "Smoke" ||
       "Mist":
-      return `/assets/weather-icons/atmosphere/${dayType}.png`;
+      return `/assets/weather-icons/atmosphere/${dayType}.webp`;
     case "Snow":
       return `/assets/weather-icons/snow/snow.png`;
     case "Drizzle":
-      return `/assets/weather-icons/drizzle/${dayType}.png`;
+      return `/assets/weather-icons/drizzle/${dayType}.webp`;
     case "Rain":
-      return `/assets/weather-icons/rain/${dayType}.png`;
+      return `/assets/weather-icons/rain/${dayType}.webp`;
     case "Thunderstorm":
-      return `/assets/weather-icons/thunderstorm/thunderstorm.png`;
+      return `/assets/weather-icons/thunderstorm/thunderstorm.webp`;
     case "Clouds":
-      return `/assets/weather-icons/clouds/clouds.png`;
+      return `/assets/weather-icons/clouds/clouds.webp`;
 
     default:
       return `/assets/weather-icons/atmosphere/${dayType}.png`;
