@@ -4,8 +4,14 @@ import apiUtils from "../../API/apiUtils";
 import useStore from "../../store/useStore";
 
 const Searchbox = () => {
-  const { setWeatherData, setAirPollutionData, setForecastData, userLocation, setUserCity, userCity } =
-    useStore();
+  const {
+    setWeatherData,
+    setAirPollutionData,
+    setForecastData,
+    userLocation,
+    setUserCity,
+    userCity,
+  } = useStore();
 
   console.log("userLocation", userLocation);
   const [cityName, setCityName] = useState(userCity);
@@ -21,16 +27,16 @@ const Searchbox = () => {
     if (!!latitude) {
       await fetchWeatherDataByCoordinates(latitude, longitude).then((data) => {
         setWeatherData(data);
-        setUserCity(data?.name)
-        setCityName(data?.name)
+        setUserCity(data?.name);
+        setCityName(data?.name);
 
         return data;
       });
     } else {
       await fetchWeatherDataByCity(cityName).then((data) => {
         setWeatherData(data);
-        setUserCity(data?.name)
-        setCityName(data?.name)
+        setUserCity(data?.name);
+        setCityName(data?.name);
         latitude = data?.coord?.lat;
         longitude = data?.coord?.lon;
         return data;
@@ -46,8 +52,8 @@ const Searchbox = () => {
     // });
 
     await fetchOneCallData(latitude, longitude).then((data) => {
-        console.log("one call", data);
-        setForecastData(data?.daily)
+      console.log("one call", data);
+      setForecastData(data?.daily);
     });
   };
 
@@ -60,7 +66,7 @@ const Searchbox = () => {
   }, [userLocation]);
 
   return (
-    <div>
+    <div className="flex flex-col items-center md:items-end">
       <div className="flex items-center bg-white rounded-full pl-2 pr-1 py-1 shadow focus:outline outline-offset-4 outline-2 outline-blue-300">
         <IconSearch className="text-blue-200" />
         <input
@@ -75,6 +81,15 @@ const Searchbox = () => {
         >
           Search
         </button>
+      </div>
+      <div className="text-sm text-neutral-600 pr-2 py-2">
+        Made by{" "}
+        <a
+          href="https://ashutoshdash.netlify.app/"
+          className="text-purple-600 font-bold"
+        >
+          Ashutosh Dash
+        </a>
       </div>
     </div>
   );
