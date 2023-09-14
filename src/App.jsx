@@ -22,12 +22,12 @@ function App() {
   }, []);
 
   return (
-    <div className="h-full bg-blue-50 p-4">
-      <div className="flex items-center justify-between">
+    <div className="h-full bg-blue-50 p-8 md:p-4">
+      <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
         <DateTime />
         <SearchBox />
       </div>
-      <div className="flex gap-8 items-start">
+      <div className="flex flex-col md:flex-row gap-4 items-center md:items-start">
         <Weather />
         <div>
           <AirPollution />

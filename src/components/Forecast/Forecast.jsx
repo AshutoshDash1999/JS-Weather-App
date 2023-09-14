@@ -7,7 +7,7 @@ const Forecast = () => {
   const { forecastData } = useStore();
 
   return (
-    <section className="my-4 grid grid-cols-7 gap-4">
+    <section className="my-4 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-4">
       {forecastData.length > 0 &&
         forecastData?.map((daily, index) => {
           const date = dayjs.unix(daily?.dt).local().format("DD MMM");

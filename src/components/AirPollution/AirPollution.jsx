@@ -26,7 +26,7 @@ const AirPollution = () => {
               <span className="font-bold text-xl text-neutral-500">
                 Air Quality Index
               </span>
-              <div className="flex items-center gap-1 w-96">
+              <div className="flex items-center gap-1 w-64 md:w-96">
                 <div>
                   <IconWind
                     stroke={1.5}
@@ -45,7 +45,7 @@ const AirPollution = () => {
               </div>
             </div>
 
-            <div className="grid grid-cols-8 gap-4 my-4">
+            <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-8 gap-4 my-4">
               <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
                 <span className="font-black text-xl">
                   {airPollutionData?.list[0].components.co}

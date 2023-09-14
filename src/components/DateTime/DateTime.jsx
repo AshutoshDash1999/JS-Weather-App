@@ -36,7 +36,7 @@ const DateTime = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 items-center md:items-start">
       <div className="font-bold text-5xl text-blue-500">
         {time}
       </div>
