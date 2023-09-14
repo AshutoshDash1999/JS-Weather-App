@@ -22,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <div className="h-full bg-blue-50 p-8">
+    <div className="h-full bg-blue-50 p-4">
       <div className="flex items-center justify-between">
         <DateTime />
         <SearchBox />
