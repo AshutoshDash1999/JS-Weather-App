@@ -42,12 +42,13 @@ const Searchbox = () => {
       setAirPollutionData(data);
     });
 
-    await fetchForcastData(latitude, longitude).then((data) => {
-      setForecastData(data);
-    });
+    // await fetchForcastData(latitude, longitude).then((data) => {
+    //   setForecastData(data);
+    // });
 
     await fetchOneCallData(latitude, longitude).then((data) => {
-      //   console.log("one call", data);
+        console.log("one call", data);
+        setForecastData(data?.daily)
     });
   };
 

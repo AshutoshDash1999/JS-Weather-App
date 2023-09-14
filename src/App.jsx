@@ -1,6 +1,12 @@
 import { useEffect } from "react";
 import "./App.css";
-import { AirPollution, DateTime, SearchBox, Weather } from "./components";
+import {
+    AirPollution,
+    DateTime,
+    Forecast,
+    SearchBox,
+    Weather
+} from "./components";
 import useStore from "./store/useStore";
 import { getUserCoordinates } from "./utils/utils";
 
@@ -23,7 +29,10 @@ function App() {
       </div>
       <div className="flex gap-8 items-start">
         <Weather />
-        <AirPollution />
+        <div>
+          <AirPollution />
+          <Forecast />
+        </div>
       </div>
     </div>
   );
