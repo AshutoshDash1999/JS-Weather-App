@@ -18,6 +18,8 @@ const useStore = create((set) => ({
         longitude,
       },
     }),
+  userCity: "Bhubaneswar",
+  setUserCity: (city) => set({ userCity: city }),
 }));
 
 export default useStore;

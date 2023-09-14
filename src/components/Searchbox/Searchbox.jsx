@@ -4,11 +4,11 @@ import apiUtils from "../../API/apiUtils";
 import useStore from "../../store/useStore";
 
 const Searchbox = () => {
-  const { setWeatherData, setAirPollutionData, setForecastData, userLocation } =
+  const { setWeatherData, setAirPollutionData, setForecastData, userLocation, setUserCity, userCity } =
     useStore();
 
   console.log("userLocation", userLocation);
-  const [cityName, setCityName] = useState("");
+  const [cityName, setCityName] = useState(userCity);
 
   const {
     fetchWeatherDataByCity,
@@ -22,11 +22,16 @@ const Searchbox = () => {
     if (!!latitude) {
       await fetchWeatherDataByCoordinates(latitude, longitude).then((data) => {
         setWeatherData(data);
+        setUserCity(data?.name)
+        setCityName(data?.name)
+
         return data;
       });
     } else {
       await fetchWeatherDataByCity(cityName).then((data) => {
         setWeatherData(data);
+        setUserCity(data?.name)
+        setCityName(data?.name)
         latitude = data?.coord?.lat;
         longitude = data?.coord?.lon;
         return data;
