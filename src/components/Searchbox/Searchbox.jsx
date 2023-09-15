@@ -13,7 +13,6 @@ const Searchbox = () => {
     userCity,
   } = useStore();
 
-  console.log("userLocation", userLocation);
   const [cityName, setCityName] = useState(userCity);
 
   const {
@@ -52,7 +51,6 @@ const Searchbox = () => {
     // });
 
     await fetchOneCallData(latitude, longitude).then((data) => {
-      console.log("one call", data);
       setForecastData(data?.daily);
     });
   };

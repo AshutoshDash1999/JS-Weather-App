@@ -18,8 +18,7 @@ export const showWeatherIcon = (weatherMain, weatherDescription) => {
       "Sand" ||
       "Fog" ||
       "Dust" ||
-      "Smoke" ||
-      "Mist":
+      "Smoke":
       return `/assets/weather-icons/atmosphere/${dayType}.webp`;
     case "Snow":
       return `/assets/weather-icons/snow/snow.png`;

@@ -11,7 +11,8 @@ import useStore from "./store/useStore";
 import { getUserCoordinates } from "./utils/utils";
 
 function App() {
-  const { setUserLocation } = useStore();
+  const { setUserLocation, weatherData, airPollutionData, forecastData } =
+    useStore();
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -22,18 +23,25 @@ function App() {
   }, []);
 
   return (
-    <div className="h-full bg-blue-50 p-8 md:p-4">
+    <div className="h-screen bg-blue-50 p-8 md:p-4">
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
         <DateTime />
         <SearchBox />
       </div>
-      <div className="flex flex-col md:flex-row gap-4 items-center md:items-start">
-        <Weather />
-        <div>
-          <AirPollution />
-          <Forecast />
+
+      {weatherData?.name && airPollutionData?.list && forecastData?.length ? (
+        <div className="flex flex-col md:flex-row gap-4 items-center md:items-start">
+          <Weather />
+          <div>
+            <AirPollution />
+            <Forecast />
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="flex justify-center items-center h-12">
+          <span className="loader"></span>
+        </div>
+      )}
     </div>
   );
 }
