@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-blue-50 p-8 md:p-4">
+    <div className="min-h-screen bg-blue-50 p-2 md:p-8 md:p-4">
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
         <DateTime />
         <SearchBox />
@@ -45,9 +45,11 @@ function App() {
       ) : weatherData?.name &&
         airPollutionData?.list &&
         forecastData?.length ? (
-        <div className="flex flex-col md:flex-row gap-4 items-center md:items-start">
-          <Weather />
-          <div>
+        <div className="md:grid md:grid-cols-12 gap-4 md:items-start">
+          <div className="md:col-span-4">
+            <Weather />
+          </div>
+          <div className="md:col-span-8">
             {!!alertData ? <Alerts /> : null}
             <AirPollution />
             <Forecast />
