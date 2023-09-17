@@ -7,7 +7,9 @@ const { weather, airPollution, forecast, onecall } = endPoints;
 const apiUtils = {
   fetchWeatherDataByCity: (cityName) => {
     const data = fetchData(`${weather}?q=${cityName}`)
-      .then((data) => data)
+      .then((data) => {
+        return data
+    })
       .catch((error) => error);
     return data;
   },

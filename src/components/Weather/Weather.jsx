@@ -23,7 +23,6 @@ const Weather = () => {
   const [weatherIcon, setWeatherIcon] = useState("");
 
   useEffect(() => {
-
     setSunriseTime(
       dayjs.unix(weatherData?.sys?.sunrise).local().format("hh:mm A")
     );

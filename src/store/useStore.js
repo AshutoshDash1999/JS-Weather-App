@@ -20,6 +20,11 @@ const useStore = create((set) => ({
     }),
   userCity: "Bhubaneswar",
   setUserCity: (city) => set({ userCity: city }),
+  isError: false,
+  setError: (error) =>
+    set({
+      isError: error,
+    }),
 }));
 
 export default useStore;

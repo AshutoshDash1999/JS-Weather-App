@@ -1,3 +1,4 @@
+import { IconAlertCircle } from "@tabler/icons-react";
 import { useEffect } from "react";
 import "./App.css";
 import {
@@ -11,8 +12,13 @@ import useStore from "./store/useStore";
 import { getUserCoordinates } from "./utils/utils";
 
 function App() {
-  const { setUserLocation, weatherData, airPollutionData, forecastData } =
-    useStore();
+  const {
+    setUserLocation,
+    weatherData,
+    airPollutionData,
+    forecastData,
+    isError,
+  } = useStore();
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -29,7 +35,14 @@ function App() {
         <SearchBox />
       </div>
 
-      {weatherData?.name && airPollutionData?.list && forecastData?.length ? (
+      {isError ? (
+        <div className="h-40 flex justify-center items-center gap-2 text-3xl font-semibold text-neutral-500 flex-col md:flex-row">
+          <IconAlertCircle size={35} />
+          <span>Something went wrong</span>
+        </div>
+      ) : weatherData?.name &&
+        airPollutionData?.list &&
+        forecastData?.length ? (
         <div className="flex flex-col md:flex-row gap-4 items-center md:items-start">
           <Weather />
           <div>

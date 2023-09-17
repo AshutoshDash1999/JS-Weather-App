@@ -46,14 +46,12 @@ export const showAQIBasedMessage = (aqi) => {
   switch (aqi) {
     case 1:
       aqiMessage.title = "Good";
-      aqiMessage.message =
-        "The air is clean and refreshing.";
+      aqiMessage.message = "The air is clean and refreshing.";
       aqiMessage.titleColor = "text-green-500";
       break;
     case 2:
       aqiMessage.title = "Fair";
-      aqiMessage.message =
-        "Air quality is acceptable.";
+      aqiMessage.message = "Air quality is acceptable.";
       aqiMessage.titleColor = "text-lime-500";
       break;
     case 3:
@@ -64,14 +62,12 @@ export const showAQIBasedMessage = (aqi) => {
       break;
     case 4:
       aqiMessage.title = "Poor";
-      aqiMessage.message =
-        "Air quality is unhealthy for everyone.";
+      aqiMessage.message = "Air quality is unhealthy for everyone.";
       aqiMessage.titleColor = "text-orange-500";
       break;
     case 5:
       aqiMessage.title = "Very Poor";
-      aqiMessage.message =
-        "Air quality is very unhealthy.";
+      aqiMessage.message = "Air quality is very unhealthy.";
       aqiMessage.titleColor = "text-red-500";
       break;
     default:
@@ -94,6 +90,10 @@ export const getUserCoordinates = () => {
       let userPosition = navigator.geolocation.getCurrentPosition(
         (position) => {
           setUserLocation(position.coords.latitude, position.coords.longitude);
+          return {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          };
         },
         (err) => {
           console.warn(`ERROR(${err.code}): ${err.message}`);
