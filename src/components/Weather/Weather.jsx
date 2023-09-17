@@ -22,6 +22,8 @@ const Weather = () => {
   const [sunriseTime, setSunriseTime] = useState("");
   const [weatherIcon, setWeatherIcon] = useState("");
 
+  const link = document.querySelector('link[rel="icon"]');
+
   useEffect(() => {
     setSunriseTime(
       dayjs.unix(weatherData?.sys?.sunrise).local().format("hh:mm A")
@@ -33,8 +35,8 @@ const Weather = () => {
     if (!!weatherData?.weather) {
       const icon = showWeatherIcon(
         weatherData?.weather[0].main,
-        weatherData?.weather[0].description
       );
+      link.setAttribute('href', icon);
       setWeatherIcon(icon);
     }
   }, [

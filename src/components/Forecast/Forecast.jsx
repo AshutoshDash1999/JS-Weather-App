@@ -20,7 +20,6 @@ const Forecast = () => {
                 <img
                   src={showWeatherIcon(
                     daily?.weather[0].main,
-                    daily?.weather[0].description
                   )}
                   alt="weather icon"
                   height={100}

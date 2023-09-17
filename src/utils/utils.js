@@ -2,13 +2,13 @@ import useStore from "../store/useStore";
 
 const { setUserLocation } = useStore.getState();
 
-export const showWeatherIcon = (weatherMain, weatherDescription) => {
+export const showWeatherIcon = (weatherMain) => {
   const dayType =
     new Date().getHours() > 5 && new Date().getHours() < 18 ? "day" : "night";
 
   switch (weatherMain) {
     case "Clear":
-      return `/assets/weather-icons/clear-sky/${dayType}.png`;
+      return `/assets/weather-icons/clear-sky/${dayType}.webp`;
     case "Haze" ||
       "Mist" ||
       "Tornado" ||
@@ -21,7 +21,7 @@ export const showWeatherIcon = (weatherMain, weatherDescription) => {
       "Smoke":
       return `/assets/weather-icons/atmosphere/${dayType}.webp`;
     case "Snow":
-      return `/assets/weather-icons/snow/snow.png`;
+      return `/assets/weather-icons/snow/snow.webp`;
     case "Drizzle":
       return `/assets/weather-icons/drizzle/${dayType}.webp`;
     case "Rain":
@@ -32,7 +32,7 @@ export const showWeatherIcon = (weatherMain, weatherDescription) => {
       return `/assets/weather-icons/clouds/clouds.webp`;
 
     default:
-      return `/assets/weather-icons/atmosphere/${dayType}.png`;
+      return `/assets/weather-icons/atmosphere/${dayType}.webp`;
   }
 };
 
