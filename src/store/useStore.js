@@ -7,6 +7,8 @@ const useStore = create((set) => ({
   setAirPollutionData: (data) => set({ airPollutionData: data }),
   forecastData: {},
   setForecastData: (data) => set({ forecastData: data }),
+  alertData: [],
+  setAlertData: (data) => set({ alertData: data }),
   userLocation: {
     latitude: 0,
     longitude: 0,

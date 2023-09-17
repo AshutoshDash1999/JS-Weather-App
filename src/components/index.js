@@ -1,4 +1,5 @@
 export { default as AirPollution } from "./AirPollution/AirPollution";
+export { default as Alerts } from "./Alerts/Alerts";
 export { default as DateTime } from "./DateTime/DateTime";
 export { default as Forecast } from "./Forecast/Forecast";
 export { default as SearchBox } from "./Searchbox/Searchbox";

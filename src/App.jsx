@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import "./App.css";
 import {
     AirPollution,
+    Alerts,
     DateTime,
     Forecast,
     SearchBox,
@@ -14,6 +15,7 @@ import { getUserCoordinates } from "./utils/utils";
 function App() {
   const {
     setUserLocation,
+    alertData,
     weatherData,
     airPollutionData,
     forecastData,
@@ -29,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <div className="h-screen bg-blue-50 p-8 md:p-4">
+    <div className="min-h-screen bg-blue-50 p-8 md:p-4">
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
         <DateTime />
         <SearchBox />
@@ -46,6 +48,7 @@ function App() {
         <div className="flex flex-col md:flex-row gap-4 items-center md:items-start">
           <Weather />
           <div>
+            {!!alertData ? <Alerts /> : null}
             <AirPollution />
             <Forecast />
           </div>

@@ -7,6 +7,7 @@ const Searchbox = () => {
   const {
     setWeatherData,
     setAirPollutionData,
+    setAlertData,
     setForecastData,
     userLocation,
     setUserCity,
@@ -52,6 +53,7 @@ const Searchbox = () => {
 
     await fetchOneCallData(latitude, longitude).then((data) => {
       setForecastData(data?.daily);
+      setAlertData(data?.alerts);
     });
   };
 
