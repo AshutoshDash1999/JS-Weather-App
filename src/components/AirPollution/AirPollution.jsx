@@ -24,7 +24,7 @@ const AirPollution = () => {
           <span className="font-bold text-xl text-neutral-500">
             Air Quality Index
           </span>
-          <div className="flex items-center gap-1 w-64 md:w-96">
+          <div className="flex items-center justify-end gap-1 w-64 md:w-96">
             <div>
               <IconWind stroke={1.5} className={aqiInfo.titleColor} size={70} />
             </div>

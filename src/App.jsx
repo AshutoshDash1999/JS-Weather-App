@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-blue-50 p-2 md:p-8 md:p-4">
+    <div className="min-h-screen bg-blue-50 p-2 md:px-8 md:py-4">
       <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
         <DateTime />
         <SearchBox />
