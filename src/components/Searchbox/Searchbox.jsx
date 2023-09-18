@@ -54,7 +54,15 @@ const Searchbox = () => {
   };
 
   useEffect(() => {
-    if (!!userLocation.latitude) {
+    if (
+      !!localStorage.getItem("latitude") &&
+      !!localStorage.getItem("longitude")
+    ) {
+      fetchWeatherDataHandler(
+        localStorage.getItem("latitude"),
+        localStorage.getItem("longitude")
+      );
+    } else if (!!userLocation.latitude && !!userLocation.longitude) {
       fetchWeatherDataHandler(userLocation.latitude, userLocation.longitude);
     } else {
       fetchWeatherDataHandler();

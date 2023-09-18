@@ -87,21 +87,32 @@ export const getUserCoordinates = () => {
   navigator.permissions.query({ name: "geolocation" }).then(function (result) {
     if (result.state === "granted" || "prompt") {
       //If granted then you can directly call your function here
-      let userPosition = navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setUserLocation(position.coords.latitude, position.coords.longitude);
-          return {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+          if (!!position.coords) {
+            setUserLocation(
+              position.coords.latitude,
+              position.coords.longitude
+            );
+            localStorage.setItem("latitude", position.coords.latitude);
+            localStorage.setItem("longitude", position.coords.longitude);
+          } else {
+            setUserLocation(
+              localStorage.getItem("latitude"),
+              localStorage.getItem("longitude")
+            );
+          }
+
+          console.table("User coordinates:", {
             latitude: position.coords.latitude,
             longitude: position.coords.longitude,
-          };
+          });
         },
         (err) => {
           console.warn(`ERROR(${err.code}): ${err.message}`);
         },
         options
       );
-
-      console.log("userPosition", userPosition);
     } else if (result.state === "denied") {
       //If denied then you have to show instructions to enable location
     }
