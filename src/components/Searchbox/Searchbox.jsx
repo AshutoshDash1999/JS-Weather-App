@@ -24,6 +24,7 @@ const Searchbox = () => {
   } = apiUtils;
 
   const fetchWeatherDataHandler = async (latitude = "", longitude = "") => {
+    setWeatherData({})
     if (!!latitude) {
       await fetchWeatherDataByCoordinates(latitude, longitude).then((data) => {
         setWeatherData(data);

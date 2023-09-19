@@ -4,7 +4,7 @@ import useStore from "../../store/useStore";
 const Alerts = () => {
   const { alertData } = useStore();
   return (
-    <section className="bg-white p-4 px-8 rounded-xl mb-4">
+    <section className="bg-white pb-8 px-8 rounded-xl mb-4">
       <h3 className="font-bold text-xl text-neutral-500 my-3">Alerts</h3>
 
       <div className="flex flex-col gap-4">
