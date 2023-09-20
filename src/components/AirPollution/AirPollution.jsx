@@ -1,7 +1,16 @@
 import { IconWind } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import useStore from "../../store/useStore";
-import { showAQIBasedMessage } from "../../utils/utils";
+import {
+    checkCOConcentration,
+    checkNO2Concentration,
+    checkO3Concentration,
+    checkPM10Concentration,
+    checkPM2_5Concentration,
+    checkSO2Concentration,
+    getColorClasses,
+    showAQIBasedMessage
+} from "../../utils/utils";
 
 const AirPollution = () => {
   const { airPollutionData } = useStore();
@@ -39,50 +48,98 @@ const AirPollution = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-8 gap-4 my-4">
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 my-4">
+          <div
+            className={`flex flex-col items-center px-2 py-4 rounded-xl ${
+              getColorClasses(
+                checkCOConcentration(airPollutionData?.list[0].components.co)
+              ).bgColor
+            } ${
+              getColorClasses(
+                checkCOConcentration(airPollutionData?.list[0].components.co)
+              ).textColor
+            }`}
+          >
             <span className="font-black text-xl">
               {airPollutionData?.list[0].components.co}
             </span>
             <span className="font-semibold">CO</span>
           </div>
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
-            <span className="font-black text-xl">
-              {airPollutionData?.list[0].components.nh3}
-            </span>
-            <span className="font-semibold">NH3</span>
-          </div>
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
-            <span className="font-black text-xl">
-              {airPollutionData?.list[0].components.no}
-            </span>
-            <span className="font-semibold">NO</span>
-          </div>
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
+          <div
+            className={`flex flex-col items-center px-2 py-4 rounded-xl ${
+              getColorClasses(
+                checkNO2Concentration(airPollutionData?.list[0].components.no2)
+              ).bgColor
+            } ${
+              getColorClasses(
+                checkNO2Concentration(airPollutionData?.list[0].components.no2)
+              ).textColor
+            }`}
+          >
             <span className="font-black text-xl">
               {airPollutionData?.list[0].components.no2}
             </span>
             <span className="font-semibold">NO2</span>
           </div>
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
+          <div
+            className={`flex flex-col items-center px-2 py-4 rounded-xl ${
+              getColorClasses(
+                checkO3Concentration(airPollutionData?.list[0].components.o3)
+              ).bgColor
+            } ${
+              getColorClasses(
+                checkO3Concentration(airPollutionData?.list[0].components.o3)
+              ).textColor
+            }`}
+          >
             <span className="font-black text-xl">
               {airPollutionData?.list[0].components.o3}
             </span>
             <span className="font-semibold">O3</span>
           </div>
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
+          <div
+            className={`flex flex-col items-center px-2 py-4 rounded-xl ${
+              getColorClasses(
+                checkPM2_5Concentration(airPollutionData?.list[0].components.pm2_5)
+              ).bgColor
+            } ${
+              getColorClasses(
+                checkPM2_5Concentration(airPollutionData?.list[0].components.pm2_5)
+              ).textColor
+            }`}
+          >
             <span className="font-black text-xl">
               {airPollutionData?.list[0].components.pm2_5}
             </span>
             <span className="font-semibold">PM 2.5</span>
           </div>
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
+          <div
+            className={`flex flex-col items-center px-2 py-4 rounded-xl ${
+              getColorClasses(
+                checkPM10Concentration(airPollutionData?.list[0].components.pm10)
+              ).bgColor
+            } ${
+              getColorClasses(
+                checkPM10Concentration(airPollutionData?.list[0].components.pm10)
+              ).textColor
+            }`}
+          >
             <span className="font-black text-xl">
               {airPollutionData?.list[0].components.pm10}
             </span>
             <span className="font-semibold">PM10</span>
           </div>
-          <div className="flex flex-col items-center bg-green-50 px-2 py-4 rounded-xl text-green-500">
+          <div
+            className={`flex flex-col items-center px-2 py-4 rounded-xl ${
+              getColorClasses(
+                checkSO2Concentration(airPollutionData?.list[0].components.so2)
+              ).bgColor
+            } ${
+              getColorClasses(
+                checkSO2Concentration(airPollutionData?.list[0].components.so2)
+              ).textColor
+            }`}
+          >
             <span className="font-black text-xl">
               {airPollutionData?.list[0].components.so2}
             </span>

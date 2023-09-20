@@ -42,7 +42,7 @@ function App() {
           <IconAlertCircle size={35} />
           <span>Something went wrong</span>
         </div>
-      ) : false &&
+      ) : weatherData?.name &&
         airPollutionData?.list &&
         forecastData?.length ? (
         <div className="md:grid md:grid-cols-12 gap-4 md:items-start">

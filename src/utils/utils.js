@@ -84,11 +84,11 @@ export const getUserCoordinates = () => {
     maximumAge: 0,
   };
 
-  navigator.permissions.query({ name: "geolocation" }).then(function (result) {
+  navigator.permissions.query({ name: "geolocation" }).then((result) => {
     if (result.state === "granted" || "prompt") {
       //If granted then you can directly call your function here
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
           if (!!position.coords) {
             setUserLocation(
               position.coords.latitude,
@@ -117,4 +117,131 @@ export const getUserCoordinates = () => {
       //If denied then you have to show instructions to enable location
     }
   });
+};
+
+export const checkSO2Concentration = (so2Value) => {
+  if (so2Value < 0) {
+    return "Invalid Value";
+  } else if (so2Value < 20) {
+    return "Good";
+  } else if (so2Value < 80) {
+    return "Fair";
+  } else if (so2Value < 250) {
+    return "Moderate";
+  } else if (so2Value < 350) {
+    return "Poor";
+  } else {
+    return "Very Poor";
+  }
+};
+
+export const checkNO2Concentration = (no2Value) => {
+  if (no2Value < 0) {
+    return "Invalid Value";
+  } else if (no2Value < 20) {
+    return "Good";
+  } else if (no2Value < 70) {
+    return "Fair";
+  } else if (no2Value < 150) {
+    return "Moderate";
+  } else if (no2Value < 200) {
+    return "Poor";
+  } else {
+    return "Very Poor";
+  }
+};
+
+export const checkPM10Concentration = (pm10Value) => {
+  if (pm10Value < 0) {
+    return "Invalid Value";
+  } else if (pm10Value < 20) {
+    return "Good";
+  } else if (pm10Value < 50) {
+    return "Fair";
+  } else if (pm10Value < 100) {
+    return "Moderate";
+  } else if (pm10Value < 200) {
+    return "Poor";
+  } else {
+    return "Very Poor";
+  }
+};
+
+export const checkPM2_5Concentration = (pm2_5Value) => {
+  if (pm2_5Value < 0) {
+    return "Invalid Value";
+  } else if (pm2_5Value < 20) {
+    return "Good";
+  } else if (pm2_5Value < 50) {
+    return "Fair";
+  } else if (pm2_5Value < 100) {
+    return "Moderate";
+  } else if (pm2_5Value < 200) {
+    return "Poor";
+  } else {
+    return "Very Poor";
+  }
+};
+
+export const checkO3Concentration = (o3Value) => {
+  if (o3Value < 0) {
+    return "Invalid Value";
+  } else if (o3Value < 10) {
+    return "Good";
+  } else if (o3Value < 25) {
+    return "Fair";
+  } else if (o3Value < 50) {
+    return "Moderate";
+  } else if (o3Value < 75) {
+    return "Poor";
+  } else {
+    return "Very Poor";
+  }
+};
+
+export const checkCOConcentration = (coValue) => {
+  if (coValue < 0) {
+    return "Invalid Value";
+  } else if (coValue < 60) {
+    return "Good";
+  } else if (coValue < 100) {
+    return "Fair";
+  } else if (coValue < 140) {
+    return "Moderate";
+  } else if (coValue < 180) {
+    return "Poor";
+  } else {
+    return "Very Poor";
+  }
+};
+
+export const getColorClasses = (qualitativeName) => {
+  const colorClasses = {
+    Good: {
+      textColor: "text-green-600",
+      bgColor: "bg-green-100",
+    },
+    Fair: {
+      textColor: "text-yellow-600",
+      bgColor: "bg-yellow-100",
+    },
+    Moderate: {
+      textColor: "text-yellow-600",
+      bgColor: "bg-yellow-100",
+    },
+    Poor: {
+      textColor: "text-orange-600",
+      bgColor: "bg-orange-100",
+    },
+    "Very Poor": {
+      textColor: "text-red-600",
+      bgColor: "bg-red-100",
+    },
+    "Invalid Value": {
+      textColor: "text-gray-600",
+      bgColor: "bg-gray-100",
+    },
+  };
+
+  return colorClasses[qualitativeName] || colorClasses["Invalid Value"];
 };
