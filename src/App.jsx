@@ -7,6 +7,7 @@ import {
     DateTime,
     Forecast,
     SearchBox,
+    SkeletonLoader,
     Weather
 } from "./components";
 import useStore from "./store/useStore";
@@ -42,9 +43,7 @@ function App() {
           <IconAlertCircle size={35} />
           <span>Something went wrong</span>
         </div>
-      ) : weatherData?.name &&
-        airPollutionData?.list &&
-        forecastData?.length ? (
+      ) : weatherData?.name && airPollutionData?.list && forecastData?.length ? (
         <div className="md:grid md:grid-cols-12 gap-4 md:items-start">
           <div className="md:col-span-4">
             <Weather />
@@ -56,9 +55,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className="flex justify-center items-center h-60">
-          <span className="loader"></span>
-        </div>
+        <SkeletonLoader/>
       )}
     </div>
   );
