@@ -13,7 +13,7 @@ const Forecast = () => {
         if (index !== 0) {
           return (
             <div
-              className="bg-white rounded-xl flex flex-col items-center"
+              className="bg-white rounded-xl flex flex-col items-center dark:bg-indigo-900"
               key={daily.dt}
             >
               <div className="flex justify-center p-2 h-24">
@@ -25,8 +25,8 @@ const Forecast = () => {
                   className="object-contain"
                 />
               </div>
-              <div className="font-semibold text-neutral-500">{date}</div>
-              <div className="flex font-black text-neutral-600 text-2xl">
+              <div className="font-semibold text-neutral-500 dark:text-white">{date}</div>
+              <div className="flex font-black text-neutral-600 text-2xl dark:text-white">
                 {((daily?.feels_like?.day +
                   daily?.feels_like?.eve +
                   daily?.feels_like?.morn +

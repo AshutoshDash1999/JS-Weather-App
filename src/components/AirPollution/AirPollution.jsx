@@ -28,20 +28,20 @@ const AirPollution = () => {
 
   return (
     <>
-      <section className="bg-white py-4 px-8 rounded-xl my-2">
+      <section className="bg-white py-4 px-8 rounded-xl my-2 dark:bg-indigo-900">
         <div className="flex justify-center md:justify-between items-center md:items-start flex-col md:flex-row">
-          <span className="font-bold text-xl text-neutral-500">
+          <span className="font-bold text-xl text-neutral-500 dark:text-white">
             Air Quality Index
           </span>
           <div className="flex items-center justify-end gap-1 w-64 md:w-96">
             <div>
-              <IconWind stroke={1.5} className={aqiInfo.titleColor} size={70} />
+              <IconWind stroke={1.5} className={`${aqiInfo.titleColor} dark:brightness-150`} size={70} />
             </div>
             <div>
-              <h3 className={`${aqiInfo.titleColor} font-black text-xl`}>
+              <h3 className={`${aqiInfo.titleColor} font-black text-xl dark:brightness-150`}>
                 {aqiInfo?.title}
               </h3>
-              <p className="text-neutral-400 font-semibold break-word">
+              <p className="text-neutral-400 font-semibold break-word dark:text-neutral-200">
                 {aqiInfo?.message}
               </p>
             </div>

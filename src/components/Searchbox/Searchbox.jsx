@@ -89,13 +89,13 @@ const Searchbox = () => {
           onKeyDown={fetchWeatherOnKeypress}
         />
         <button
-          className="bg-blue-400 text-white p-2 rounded-full shadow active:scale-90 transition ease-in-out duration-300"
+          className="bg-blue-400 dark:bg-blue-900 text-white p-2 rounded-full shadow active:scale-90 transition ease-in-out duration-300"
           onClick={() => fetchWeatherDataHandler()}
         >
           Search
         </button>
       </div>
-      <div className="text-sm text-neutral-600 pr-2 py-2">
+      <div className="text-sm text-neutral-600 pr-2 py-2 dark:text-white">
         Made by{" "}
         <a
           href="https://ashutoshdash.netlify.app/"
