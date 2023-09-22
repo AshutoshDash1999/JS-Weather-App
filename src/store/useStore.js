@@ -27,6 +27,11 @@ const useStore = create((set) => ({
     set({
       isError: error,
     }),
+  isDarkMode: false,
+  setDarkMode: (value) =>
+    set({
+        isDarkMode: value,
+    }),
 }));
 
 export default useStore;

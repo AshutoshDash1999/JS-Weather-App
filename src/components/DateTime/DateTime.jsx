@@ -37,13 +37,13 @@ const DateTime = () => {
 
   return (
     <div className="flex flex-col gap-1 items-center md:items-start">
-      <div className="font-bold text-5xl text-blue-500">
+      <div className="font-bold text-5xl text-blue-500 dark:text-white">
         {time}
       </div>
       <div className="font-bold text-2xl dark:text-white">
         {date}
       </div>
-      <div className="text-blue-500 flex items-center font-semibold text-2xl gap-1">
+      <div className="text-blue-500 dark:text-white flex items-center font-semibold text-2xl gap-1">
         {greetIcon}
         {greetText} !
       </div>

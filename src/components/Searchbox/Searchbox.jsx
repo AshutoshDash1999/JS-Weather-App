@@ -2,6 +2,7 @@ import { IconSearch } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
 import apiUtils from "../../API/apiUtils";
 import useStore from "../../store/useStore";
+import DarkmodeToggler from "../DarkmodeToggler/DarkmodeToggler";
 
 const Searchbox = () => {
   const {
@@ -24,7 +25,7 @@ const Searchbox = () => {
   } = apiUtils;
 
   const fetchWeatherDataHandler = async (latitude = "", longitude = "") => {
-    setWeatherData({})
+    setWeatherData({});
     if (!!latitude) {
       await fetchWeatherDataByCoordinates(latitude, longitude).then((data) => {
         setWeatherData(data);
@@ -78,7 +79,9 @@ const Searchbox = () => {
   };
 
   return (
-    <div className="flex flex-col items-center md:items-end">
+    <div className="flex flex-col items-center md:items-end gap-3">
+      <DarkmodeToggler />
+
       <div className="flex items-center bg-white rounded-full pl-2 pr-1 py-1 shadow focus:outline outline-offset-4 outline-2 outline-blue-300">
         <IconSearch className="text-blue-200" />
         <input
@@ -95,7 +98,7 @@ const Searchbox = () => {
           Search
         </button>
       </div>
-      <div className="text-sm text-neutral-600 pr-2 py-2 dark:text-white">
+      <div className="text-sm text-neutral-600 pr-2 dark:text-white">
         Made by{" "}
         <a
           href="https://ashutoshdash.netlify.app/"

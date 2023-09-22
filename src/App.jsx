@@ -21,6 +21,7 @@ function App() {
     airPollutionData,
     forecastData,
     isError,
+    isDarkMode
   } = useStore();
 
   useEffect(() => {
@@ -31,9 +32,11 @@ function App() {
     }
   }, []);
 
+  console.log("isDarkMode", isDarkMode)
+
   return (
-    <div className="dark">
-      <div className="min-h-screen bg-blue-50 dark:bg-blue-950 p-2 md:px-8 md:py-4">
+    <div className={`${isDarkMode?"dark":"light"} app__wrapper`}>
+      <div className="min-h-screen bg-blue-50 dark:bg-indigo-900 p-2 md:px-8 md:py-4">
         <div className="flex flex-col md:flex-row items-center justify-center md:justify-between">
           <DateTime />
           <SearchBox />

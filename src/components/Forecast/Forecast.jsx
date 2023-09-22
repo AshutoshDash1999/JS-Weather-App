@@ -13,7 +13,7 @@ const Forecast = () => {
         if (index !== 0) {
           return (
             <div
-              className="bg-white rounded-xl flex flex-col items-center dark:bg-indigo-900"
+              className="bg-white rounded-xl flex flex-col items-center dark:bg-blue-950 p-2"
               key={daily.dt}
             >
               <div className="flex justify-center p-2 h-24">

@@ -48,7 +48,7 @@ const Weather = () => {
 
   return (
     <>
-      <section className="md:bg-white md:p-4 md:px-8 rounded-xl my-2 dark:bg-indigo-900">
+      <section className="md:bg-white md:p-4 md:px-8 rounded-xl my-2 dark:bg-blue-950">
         <div className="bg-gradient-to-r from-blue-400 to-blue-500 rounded-xl shadow-md p-4 text-white my-4">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center">
@@ -108,7 +108,7 @@ const Weather = () => {
           </div>
         </div>
 
-        <div className="bg-orange-50 dark:bg-blue-950  rounded-xl p-4 my-4 text-black flex justify-between">
+        <div className="bg-orange-50 dark:bg-indigo-900  rounded-xl p-4 my-4 text-black flex justify-between">
           <div className="flex items-center gap-2">
             <div>
               <IconSunHigh className="text-orange-400" size={60} stroke={1.5} />

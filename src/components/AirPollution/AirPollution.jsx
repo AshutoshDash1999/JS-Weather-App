@@ -28,7 +28,7 @@ const AirPollution = () => {
 
   return (
     <>
-      <section className="bg-white py-4 px-8 rounded-xl my-2 dark:bg-indigo-900">
+      <section className="bg-white py-4 px-8 rounded-xl my-2 dark:bg-blue-950">
         <div className="flex justify-center md:justify-between items-center md:items-start flex-col md:flex-row">
           <span className="font-bold text-xl text-neutral-500 dark:text-white">
             Air Quality Index
