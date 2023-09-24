@@ -15,13 +15,13 @@ const SkeletonLoader = () => {
       <div className="md:col-span-8">
 
         <section className="bg-white dark:bg-blue-950 md:p-4 md:px-8 rounded-xl my-2">
-          <div className="flex justify-center md:justify-between items-center md:items-start flex-col md:flex-row">
+          <div className="flex justify-center md:justify-between items-center md:items-start flex-col md:flex-row animate-pulse">
             <div className="rounded-xl bg-slate-200 dark:bg-indigo-900 h-4 w-40"></div>
             <div className=" mb-4 w-60">
               <div className="rounded-xl bg-slate-200 dark:bg-indigo-900 h-20"></div>
             </div>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 my-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 my-4 animate-pulse">
             <div className="rounded-xl bg-slate-200 dark:bg-indigo-900 h-20"></div>
             <div className="rounded-xl bg-slate-200 dark:bg-indigo-900 h-20"></div>
             <div className="rounded-xl bg-slate-200 dark:bg-indigo-900 h-20"></div>
@@ -31,7 +31,7 @@ const SkeletonLoader = () => {
           </div>
         </section>
 
-        <section className="my-4 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-4">
+        <section className="my-4 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-7 gap-4 animate-pulse">
           <div className="rounded-xl bg-slate-200 dark:bg-blue-950 h-32"></div>
           <div className="rounded-xl bg-slate-200 dark:bg-blue-950 h-32"></div>
           <div className="rounded-xl bg-slate-200 dark:bg-blue-950 h-32"></div>

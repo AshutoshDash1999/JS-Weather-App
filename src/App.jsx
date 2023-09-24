@@ -32,8 +32,6 @@ function App() {
     }
   }, []);
 
-  console.log("isDarkMode", isDarkMode)
-
   return (
     <div className={`${isDarkMode?"dark":"light"} app__wrapper`}>
       <div className="min-h-screen bg-blue-50 dark:bg-indigo-900 p-2 md:px-8 md:py-4">
