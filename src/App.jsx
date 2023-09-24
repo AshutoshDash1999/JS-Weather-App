@@ -48,7 +48,7 @@ function App() {
         ) : weatherData?.name &&
           airPollutionData?.list &&
           forecastData?.length ? (
-          <div className="md:grid md:grid-cols-12 gap-4 md:items-start">
+          <div className="md:grid md:grid-cols-12 gap-4 md:items-start mt-4">
             <div className="md:col-span-4">
               <Weather />
             </div>
