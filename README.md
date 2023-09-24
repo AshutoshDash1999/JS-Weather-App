@@ -1,11 +1,12 @@
-# React Weather App
+# Weather Town
 
 Built on TailwindCSS and React using OpenWeatherMap API.
 Try the website [here](https://react-weather-ashu.netlify.app) 
 
 ## Screencast
 
-![weather app screenshot](https://github.com/AshutoshDash1999/React-Weather-App/assets/46455250/b61b2887-35e7-40e9-ac7f-f1215dd94637)
+![app-screenshot](https://github.com/AshutoshDash1999/Weather-Town/assets/46455250/280764ca-3ba8-4fd7-9ace-18de3c1c82cf)
+
 
 ## Features
 - Search a city by name
